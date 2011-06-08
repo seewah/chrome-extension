@@ -92,14 +92,24 @@ function createUriMap(feedItems) {
  * Generated uri/comments map for the current feed data.
  */
 function createCurrentFeedUriMap() {
-	return createUriMap(JSON.parse(localStorage.currentFeed));
+	if(localStorage.currentFeed) {
+		return createUriMap(JSON.parse(localStorage.currentFeed));
+	}
+	else {
+		return {};
+	}
 }
 
 /**
  * Generated uri/comments map for the viewed feed data.
  */
-function createViewedFeedUriMap() {
-	return createUriMap(JSON.parse(localStorage.viewedFeed));
+function createViewedFeedUriMap() {	
+	if(localStorage.viewedFeed) {
+		return createUriMap(JSON.parse(localStorage.viewedFeed));
+	}
+	else {
+		return {};
+	}
 }
 
 /**
