@@ -14,7 +14,7 @@ var fetchFeedInterval = null;
 var onLogIn = function() {
 	if(fetchFeedInterval === null) {
 		fetchFeed();
-		fetchFeedInterval = window.setInterval('fetchFeed()', 120000)
+		fetchFeedInterval = window.setInterval('fetchFeed()', 300000)
 	}
 };
 var onLogOut = function() {
