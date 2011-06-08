@@ -88,10 +88,16 @@ function createUriMap(feedItems) {
 	return map;
 }
 
+/**
+ * Generated uri/comments map for the current feed data.
+ */
 function createCurrentFeedUriMap() {
 	return createUriMap(JSON.parse(localStorage.currentFeed));
 }
 
+/**
+ * Generated uri/comments map for the viewed feed data.
+ */
 function createViewedFeedUriMap() {
 	return createUriMap(JSON.parse(localStorage.viewedFeed));
 }
