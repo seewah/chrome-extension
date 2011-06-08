@@ -1,0 +1,29 @@
+<script>
+// config
+var mendeleyUrl = 'http://www.mendeley.com/';	
+var cookieName = 'www_mendeley_stash';
+</script>
+
+<script src="scripts/jquery-1.4.4.min.js"></script>
+<script src="scripts/loginMonitor.js"></script>
+<script src="scripts/feed.js"></script>
+<script src="scripts/contextMenu.js"></script>
+
+<script>
+var fetchFeedInterval = null;
+var onLogIn = function() {
+	if(fetchFeedInterval === null) {
+		fetchFeed();
+		fetchFeedInterval = window.setInterval('fetchFeed()', 120000)
+	}
+};
+var onLogOut = function() {
+	if(fetchFeedInterval !== null) {
+		window.clearInterval(fetchFeedInterval);
+		fetchFeedInterval = null;
+	}
+};
+setupSearchCtxMenu();
+monitorLoginStatus(onLogIn, onLogOut);
+window.setInterval('monitorLoginStatus(onLogIn, onLogOut)', 5000);
+</script>

@@ -1,0 +1,20 @@
+{
+  	"name": "Mendeley",
+  	"version": "1.0.0",
+  	"description": "The Mendeley Chrome extension",
+  	"browser_action": {
+		"default_icon": "images/Mendeley_20.png",
+		"default_title": "The Mendeley Chrome extension",
+		"popup": "popup.html"
+	},
+	"permissions": [
+		"http://www.mendeley.com/",
+		"contextMenus", 
+		"tabs",
+    		"cookies"
+	],
+	"icons": {
+		"16": "images/Mendeley_16.png"
+	},
+	"background_page": "background.html"
+}
