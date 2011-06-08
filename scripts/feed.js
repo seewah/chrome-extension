@@ -67,15 +67,15 @@ function isItemUnread(itemUri, currentFeedUriMap, viewedFeedUriMap) {
 		// new feed item
 		return true;
 	}
-	else if(currentFeedUriMap[itemUri] != viewedFeedUriMap[itemUri]) {
-		// new comment(s)
+	else if(JSON.stringify(currentFeedUriMap[itemUri]) != JSON.stringify(viewedFeedUriMap[itemUri])) {
+		// modified contents
 		return true;
 	}
 	return false;
 }
 
 /**
- * Generates temporary item uri/comments map for working out what is new in the feed
+ * Generates temporary item uri/contents map for working out what is new in the feed
  */
 function createUriMap(feedJson) {
 	var map = {};
@@ -84,7 +84,7 @@ function createUriMap(feedJson) {
 		if(feedItems !== null) {
 			for(var i = 0; i < feedItems.length; i++) {
 				var item = feedItems[i];
-				map[item.uri] = JSON.stringify(item.comments);
+				map[item.uri] = item;
 			}
 		}
 	}
@@ -92,14 +92,14 @@ function createUriMap(feedJson) {
 }
 
 /**
- * Generated uri/comments map for the current feed data.
+ * Generated uri/contents map for the current feed data.
  */
 function createCurrentFeedUriMap() {
 	return createUriMap(localStorage.currentFeed);
 }
 
 /**
- * Generated uri/comments map for the viewed feed data.
+ * Generated uri/contents map for the viewed feed data.
  */
 function createViewedFeedUriMap() {	
 	return createUriMap(localStorage.viewedFeed);
