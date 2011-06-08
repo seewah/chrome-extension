@@ -77,12 +77,15 @@ function isItemUnread(itemUri, currentFeedUriMap, viewedFeedUriMap) {
 /**
  * Generates temporary item uri/comments map for working out what is new in the feed
  */
-function createUriMap(feedItems) {
+function createUriMap(feedJson) {
 	var map = {};
-	if(feedItems !== null) {
-		for(var i = 0; i < feedItems.length; i++) {
-			var item = feedItems[i];
-			map[item.uri] = JSON.stringify(item.comments);
+	if(feedJson) {
+		feedItems = JSON.parse(feedJson);
+		if(feedItems !== null) {
+			for(var i = 0; i < feedItems.length; i++) {
+				var item = feedItems[i];
+				map[item.uri] = JSON.stringify(item.comments);
+			}
 		}
 	}
 	return map;
@@ -92,24 +95,14 @@ function createUriMap(feedItems) {
  * Generated uri/comments map for the current feed data.
  */
 function createCurrentFeedUriMap() {
-	if(localStorage.currentFeed) {
-		return createUriMap(JSON.parse(localStorage.currentFeed));
-	}
-	else {
-		return {};
-	}
+	return createUriMap(localStorage.currentFeed);
 }
 
 /**
  * Generated uri/comments map for the viewed feed data.
  */
 function createViewedFeedUriMap() {	
-	if(localStorage.viewedFeed) {
-		return createUriMap(JSON.parse(localStorage.viewedFeed));
-	}
-	else {
-		return {};
-	}
+	return createUriMap(localStorage.viewedFeed);
 }
 
 /**
