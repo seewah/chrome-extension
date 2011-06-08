@@ -79,7 +79,7 @@ function isItemUnread(itemUri, currentFeedUriMap, viewedFeedUriMap) {
  */
 function createUriMap(feedJson) {
 	var map = {};
-	if(feedJson !== null) {
+	if(feedJson) {
 		feedItems = JSON.parse(feedJson);
 		if(feedItems !== null) {
 			for(var i = 0; i < feedItems.length; i++) {
