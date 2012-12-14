@@ -3,22 +3,22 @@
 <script src="scripts/popup.js"></script>
 
 <body>
+	<div id="header">
+		<a href="http://www.mendeley.com"><img src="images/MendeleyButton.png" class="mendeley-button" border="0"></a>
 	<div id="search">
 		<form>
-			<div id="search-box">
-				<input type="text" value="Search papers..."></input>
-			</div>
-			<button class="search-btn" type="submit">Search</button>
+			<input type="search" placeholder="Search for an article..." results="10" autosave="for-science" name="mendeley-search" class="search-box"></input>
 		</form>
 	</div>
+	<div class="feed-title">Recent Activity</div>
+	</div>
+	
 	<div id="logged-out">
 		<div id="login-prompt">
 			<a href="https://www.mendeley.com/login/" class="site-link">Log in</a> now for instant update of your Mendeley newsfeed
 		</div>
 	</div>
 	<div id="logged-in">		
-		<a href="http://www.mendeley.com/" class="site-link">Go to Mendeley dashboard</a>
-		<div id="feed-items"></div>		
-		<a href="http://www.mendeley.com/" class="site-link">Go to Mendeley dashboard</a>
+		<div id="feed-items"></div>
 	</div>
 </body>

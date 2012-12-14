@@ -131,24 +131,27 @@ function renderFeed(container) {
  */
 function createFeedItem(feedItem, unread) {
 	var div = $('<article></article>');
+	var itemPadding = $('<div class="padding"></div>')
+	var inner = itemPadding.appendTo(div);
+	
 	div.addClass('feed-item');
 	if(unread) {
-		div.addClass('unread');
+		itemPadding.addClass('unread');
 	}
 	if(feedItem.profile) {
-		div.append(createProfileImg(feedItem.profile, 30));
+		inner.append(createProfileImg(feedItem.profile, 30));
 	}
-	div.append(createFeedHeader(feedItem));
-	div.append(createFeedTextContent(feedItem));
+	inner.append(createFeedHeader(feedItem));
+	inner.append(createFeedTextContent(feedItem));
 	if(feedItem.comments.length > 0) {
 		var comments = $('<div></div>');
 		comments.addClass('comments');
-		div.append(comments);
+		inner.append(comments);
 		for(var i = 0; i < feedItem.comments.length; i++) {
 			comments.append(createCommentItem(feedItem.comments[i]));
 		}
 	}
-	div.append(createFeedLink(feedItem));
+	inner.append(createFeedLink(feedItem));
 	return div;
 }
 
@@ -159,8 +162,9 @@ function createFeedLink(feedItem) {
 	var timeString = new Date(feedItem.modificationTime * 1000).toUTCString();
 	var feedUri = feedItem.uri;
 	var feedLink = $('<a></a>');
-	feedLink.append(timeString);
+	feedLink.append('Comment');
 	feedLink.attr('href', feedUri);
+	feedLink.addClass('permalink');
 	feedLink.addClass('site-link');
 	feedLink.addClass('feed-link');
 	return feedLink;

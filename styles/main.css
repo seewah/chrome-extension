@@ -1,11 +1,14 @@
 body {
 	min-width:350px;
 	overflow-x:hidden;
-	font-family: arial;
+	font-family: "Lucida Grande", sans-serif;
+	color: #333;
 	font-size: 12px;
+	margin: 0;
+	padding: 0;
 }
 a {
-	color: #A70805;
+	color: #2e6dc8;
 	text-decoration: none;
 }
 a:hover {
@@ -13,113 +16,156 @@ a:hover {
 }
 form {
 	border: 0;
-}
-#search {	
-	position: relative;
-	width: 330px;
-	border-bottom: 1px solid #CACACA;
-	margin-bottom: 10px;
-}
-#search-box {
-	position: relative;
-	height: 26px;
-	width: 300px;
-	border: 1px solid #CACACA;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-#search-box input[type="text"] {
 	margin: 0;
-	margin-top: 3px;
-	margin-left: 5px;
-	border: 1px solid white;
-	outline: none;
-	font-size: 14px;
-	font-family: Arial,Helvetica,Sans-serif;
-	font-style: italic;
-	color: #999;
-	padding: 1px 0;
-	float: left;
-	width: 98%;
+	padding: 10px;
+	padding-left: 0;
+	padding-right: 16px;
 }
-#search-box input[type="text"].focus {
-	font-style: normal;	
-	color: black;
-}
-.search-btn {
-	border: 1px solid #CACACA;
-	position: absolute;
-	cursor: pointer;
-	right: 0;
+
+#header {
+	position: fixed;
 	top: 0;
-	width: 31px;
-	height: 28px;
-	text-indent: 40px;
-	overflow: hidden;
-	background: #E9E9E9 url(../images/search_btn.png) -6px 50% no-repeat;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	width: 100%;
+	overflow: auto;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 0px 6px rgba(0,0,0,0.4);
+	background-image: -webkit-linear-gradient(bottom, rgb(226,226,226) 0%, rgb(255,255,255) 100%);
 }
-.search-btn:hover {
-	background: #F2F2F2 url(../images/search_btn.png) -46px 50% no-repeat;
-	border: 1px solid #939393;
-	text-decoration: none;
-	z-index: 11;
+
+.mendeley-button {
+	position: absolute;
+	top: 0;
+	left: 9px;
 }
+
+#search {
+	margin-left: 52px;
+}
+
+.search-box {
+	width: 100%;
+	margin: 0;
+	font-size: large;
+	padding: 3px;
+}
+
+.feed-title {
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #797979;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+	padding: 5px 10px;
+	border-top: 1px solid #b8b8b8;
+	background-image: -webkit-linear-gradient(bottom, rgb(212,212,212) 0%, rgb(225,225,225) 100%);
+}
+
 #feed-items {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 65px;
 }
+
 .feed-item {	
+	margin: 0;
 	clear: left;
-	width: 318px;
-	margin-top: 5px;	
-	padding: 5px;
-	border: 1px solid #eee;
-	border-radius: 5px;
+	background: #f2f2f2;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #fff;
 }
+
+.feed-item .padding {
+	margin: -1px 0;
+	padding: 10px 10px 10px 6px;
+	border-left: 4px solid rgba(255,255,255,0);
+}
+
 .feed-item.unread {
-	border: 1px solid #555;
+	background: #dcecf2;
 }
+
+.unread .padding {
+	border-left: 4px solid #7ac5f5;
+}
+
 .feed-item .photo {
 	float: left;
+	margin-right: 10px;
 }
 .feed-item header {
 	margin-left: 35px;
-	min-height: 30px;
-	font-size: 14px;
+	font-size: 12px;
 }
-.feed-item .main-content {	
-	clear: left;
-	margin-top: 5px;
-}
-.feed-item .main-content a {
+
+.feed-item header a {
 	font-weight: bold;
-	cursor: default;
-	color: black;
-} 
-.feed-item .main-content a:hover {
+	color: #222;
 	text-decoration: none;
 }
+.feed-item .main-content {	
+	margin-top: 5px;
+	margin-left: 43px;
+}
+
 .feed-item .comments {
-	background: #eee;
-	padding: 5px;
+	border-left: 3px solid #dddddd;
 	padding-top: 0px;	
 	margin-top: 5px;
+	font-size: 11px;
+	margin-right: -10px;
+	margin-left: 43px;
 }
 .feed-item .comment {	
 	clear: left;
-	padding-top: 5px;
-	min-height: 25px;
+	padding: 5px;
+	min-height: 28px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #fff;
 }
+
 .feed-item .comment .photo {
-	float: left;
+	margin-right: 8px;
+}
+
+.photo img {
+	background: 1px solid #fff;
+	padding: 1px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 .feed-item .comment .content {
 	margin-left: 30px;
 }
 .feed-item .feed-link {	
 	margin-top: 5px;
-	display: block;
-	font-size: 10px;
+	display: inline-block;
+	font-size: 11px;
+	font-family: "Lucida Grande";
 }  
+
+.import-buttons {
+	padding: 0 0 5px 0;
+	overflow: auto;
+	margin-left: 52px;
+}
+
+a.button-link {
+	display: inline-block;
+	
+	color: #222;
+	padding: 3px 8px;
+	font-size: 11px;
+	font-family: "Lucida Grande";
+	border: 1px solid #b2b2b2;
+	border-radius: 3px;
+	background-image: -webkit-linear-gradient(bottom, rgb(226,226,226) 0%, rgb(255,255,255) 100%);
+}
+
+#logged-out {
+	height: 350px;
+	background: #f2f2f2;
+}
+
+#login-prompt {
+	padding: 150px 40px 0 40px;
+}
+
+a.permalink {
+	margin-left: 43px;
+}
