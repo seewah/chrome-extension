@@ -1,17 +1,7 @@
 $(function() {
 	var searchBoxInitialText = 'Search papers...';
-	var searchBox = $('#search-box input');
-	searchBox.val(searchBoxInitialText);
-	searchBox.focus(function() {
-		searchBox.val('');
-		searchBox.addClass('focus');
-	});		
-	searchBox.blur(function() {
-		if(searchBox.val() == '') {
-			searchBox.val(searchBoxInitialText);
-		}
-		searchBox.removeClass('focus');
-	});
+	var searchBox = $('.search-box');
+	
 	$('#search form').submit(function(e) {
 		var props = new Object();
 		var queryString = searchBox.val();
@@ -22,9 +12,12 @@ $(function() {
 		chrome.tabs.create(props);
 		e.preventDefault();
 	});
-	$('.site-link').live('click', function() {			
-		chrome.tabs.create({'url':$(this).attr('href')});
-		e.preventDefault();
+	$('a').live('click', function() {
+		var href =	$(this).attr('href');
+		if(href.indexOf("https") != 0) {
+			chrome.tabs.create({'url':href});
+			e.preventDefault();
+		}
 	});
 	if(chrome.extension.getBackgroundPage().loggedIn) {
 		$('#logged-out').hide();
