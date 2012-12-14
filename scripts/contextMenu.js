@@ -12,5 +12,6 @@ function openSearchPage(info, tab) {
  */
 function setupSearchCtxMenu() {
 	var title = "Search for '%s' in Mendeley";
-	chrome.contextMenus.create({"title": title, "contexts":['selection'], "onclick": openSearchPage});
+	chrome.contextMenus.create({"id": "1", "title": title, "contexts":['selection']});
+	chrome.contextMenus.onClicked.addListener(openSearchPage);
 }
