@@ -1,11 +1,12 @@
 body {
 	min-width:350px;
 	overflow-x:hidden;
-	font-family: "Lucida Grande", sans-serif;
+	font-family: "Lucida Grande", Arial, Ubuntu, sans-serif;
 	color: #333;
 	font-size: 12px;
 	margin: 0;
 	padding: 0;
+	background: #f2f2f2;
 }
 a {
 	color: #2e6dc8;
@@ -69,6 +70,7 @@ form {
 	background: #f2f2f2;
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #fff;
+	word-wrap: break-word;
 }
 
 .feed-item .padding {
@@ -77,11 +79,16 @@ form {
 	border-left: 4px solid rgba(255,255,255,0);
 }
 
-.feed-item.unread {
-	background: #dcecf2;
+.feed-item:hover .padding {
+	border-left: 4px solid #dfdfdf;
 }
 
-.unread .padding {
+.feed-item.unread {
+	background: #fff;
+}
+
+.unread .padding,
+.unread:hover .padding {
 	border-left: 4px solid #7ac5f5;
 }
 
@@ -96,17 +103,32 @@ form {
 
 .feed-item header a {
 	font-weight: bold;
-	color: #222;
+	color: #666;
 	text-decoration: none;
 }
+
+.feed-item:hover header a,
+.feed-item.unread header a {
+	color: #222;
+}
+
+.feed-item a {
+	color: #666;
+}
+
+.feed-item:hover a,
+.feed-item.unread a {
+	color: #2e6dc8;
+}
+
 .feed-item .main-content {	
 	margin-top: 5px;
 	margin-left: 43px;
 }
 
 .feed-item .comments {
-	border-left: 3px solid #dddddd;
-	padding-top: 0px;	
+	border-left: 3px solid #ddd;
+	border-top: 1px solid #ddd;	
 	margin-top: 5px;
 	font-size: 11px;
 	margin-right: -10px;
@@ -118,6 +140,8 @@ form {
 	min-height: 28px;
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #fff;
+	background: #f2f2f2;
+	word-wrap: break-word;
 }
 
 .feed-item .comment .photo {
@@ -136,7 +160,7 @@ form {
 	margin-top: 5px;
 	display: inline-block;
 	font-size: 11px;
-	font-family: "Lucida Grande";
+	font-family: "Lucida Grande", Arial, Ubuntu, sans-serif;
 }  
 
 .import-buttons {
@@ -147,23 +171,26 @@ form {
 
 a.button-link {
 	display: inline-block;
-	
 	color: #222;
 	padding: 3px 8px;
 	font-size: 11px;
-	font-family: "Lucida Grande";
+	font-family: "Lucida Grande", Arial, Ubuntu, sans-serif;
 	border: 1px solid #b2b2b2;
 	border-radius: 3px;
 	background-image: -webkit-linear-gradient(bottom, rgb(226,226,226) 0%, rgb(255,255,255) 100%);
 }
 
 #logged-out {
-	height: 350px;
+	height: 200px;
 	background: #f2f2f2;
+	margin: 0;
 }
 
 #login-prompt {
-	padding: 150px 40px 0 40px;
+	color: #666;
+	font-size: 11px;
+	padding: 150px 60px 0 60px;
+	text-align: center;
 }
 
 a.permalink {

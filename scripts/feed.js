@@ -136,7 +136,7 @@ function createFeedItem(feedItem, unread) {
 	
 	div.addClass('feed-item');
 	if(unread) {
-		itemPadding.addClass('unread');
+		div.addClass('unread');
 	}
 	if(feedItem.profile) {
 		inner.append(createProfileImg(feedItem.profile, 30));
