@@ -1,6 +1,6 @@
 {
   	"name": "Mendeley Newsfeed Chrome Extension",
-  	"version": "1.1.0",
+  	"version": "1.1.1",
 	"manifest_version": 2,
   	"description": "Mendeley Chrome extension for newsfeed notification",
   	"browser_action": {
@@ -21,7 +21,6 @@
 		"128": "images/Mendeley_128.png"
 	},
 	"background": {
-		"page": "background.html",
-		"persistent": false
+		"page": "background.html"
 	}
 }
