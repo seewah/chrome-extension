@@ -14,4 +14,5 @@ function onInit() {
 	pollLoginStatus(onLogIn, onLogOut);
 }
 chrome.runtime.onInstalled.addListener(onInit);
+chrome.runtime.onStartup.addListener(onInit);
 chrome.alarms.onAlarm.addListener(onAlarm);
