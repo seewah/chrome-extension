@@ -5,8 +5,10 @@ var loggedIn = false;
 /**
  * Checks site cookie to see whether the user is logged in. Updates the loggedIn variable accordingly. Additionally, it invokes
  * the callbacks.
+ *
+ * This method invokes itself repeatedly to poll the status.
  */
-function monitorLoginStatus(onLogInFunc, onLogOutFunc) {
+function pollLoginStatus(onLogInFunc, onLogOutFunc) {
 	chrome.cookies.get(mendeleyCookieDetails, function(cookie) {
 		if(cookie) {
 			if(!loggedIn) {
@@ -23,4 +25,5 @@ function monitorLoginStatus(onLogInFunc, onLogOutFunc) {
 			}
 		}
 	});
+	chrome.alarms.create('pollLoginStatus', {when: Date.now() + 2000});
 }

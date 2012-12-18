@@ -6,14 +6,12 @@ function onLogOut() {
 	chrome.alarms.clear('fetchFeed');
 };
 function onAlarm(alarm) {
-	if(alarm.name == 'monitorLoginStatus') monitorLoginStatus(onLogIn, onLogOut);
+	if(alarm.name == 'pollLoginStatus') pollLoginStatus(onLogIn, onLogOut);
 	else if(alarm.name == 'fetchFeed') fetchFeed();
 }
 function onInit() {
 	setupSearchCtxMenu();
-	monitorLoginStatus(onLogIn, onLogOut);
-	chrome.alarms.create('monitorLoginStatus', {periodInMinutes: 0.1});
+	pollLoginStatus(onLogIn, onLogOut);
 }
 chrome.runtime.onInstalled.addListener(onInit);
-chrome.runtime.onStartup.addListener(onInit);
 chrome.alarms.onAlarm.addListener(onAlarm);
