@@ -113,9 +113,10 @@ function renderFeed(container) {
 	var viewedFeedUriMap = createViewedFeedUriMap();
 	chrome.browserAction.setBadgeText({'text':''});
 	if(localStorage.currentFeed) {
-		var feedItems = JSON.parse(localStorage.currentFeed);
-		for(var i = 0; i < feedItems.length; i++) {
-			var item = feedItems[i];
+		var feedData = JSON.parse(localStorage.currentFeed);
+		delete feedData['success'];
+		for(var i in feedData) {
+			var item = feedData[i];
 			var unread = isItemUnread(item.uri, currentFeedUriMap, viewedFeedUriMap);
 			container.append(createFeedItem(item, unread));
 		}
