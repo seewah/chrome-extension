@@ -80,12 +80,11 @@ function isItemUnread(itemUri, currentFeedUriMap, viewedFeedUriMap) {
 function createUriMap(feedJson) {
 	var map = {};
 	if(feedJson) {
-		feedItems = JSON.parse(feedJson);
-		if(feedItems !== null) {
-			for(var i = 0; i < feedItems.length; i++) {
-				var item = feedItems[i];
-				map[item.uri] = item;
-			}
+		var feedData = JSON.parse(feedJson);
+		delete feedData['success'];
+		for(var i in feedData) {
+			var item = feedData[i];
+			map[item.uri] = item;
 		}
 	}
 	return map;
