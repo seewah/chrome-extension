@@ -1,10 +1,10 @@
 {
   	"name": "Mendeley Newsfeed Chrome Extension",
-  	"version": "1.1.8",
+  	"version": "1.2",
 	"manifest_version": 2,
   	"description": "Mendeley Chrome extension for newsfeed notification",
   	"browser_action": {
-		"default_icon": "images/Mendeley_20.png",
+		"default_icon": "images/iconDefault.png",
 		"default_title": "Mendeley Newsfeed Chrome extension",
 		"default_popup": "popup.html"
 	},
@@ -16,9 +16,9 @@
 		"alarms"
 	],
 	"icons": {
-		"16": "images/Mendeley_16.png",
-		"48": "images/Mendeley_48.png",
-		"128": "images/Mendeley_128.png"
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
 	},
 	"background": {
 		"page": "background.html"
